@@ -1,6 +1,10 @@
 # Two-Stage DP Implementation
+<p align="left">
+<br>
+ <a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white"></a>
+ <a href="https://colab.research.google.com/drive/"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+</p>
 
-****
 ## 內容
 * [簡介](#Introduction)
 * [環境準備](#Pre-Requisites)
