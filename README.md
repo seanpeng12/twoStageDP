@@ -69,27 +69,28 @@ docker run --rm --gpus all nvidia/cuda:11.2.2-base nvidia-smi
 # /var/lib/docker -> /media/sean/WD-2TB/docker (any dir.)
 # https://stackoverflow.com/questions/76481801/error-after-moving-dockers-dir-to-ntfs-overlayfs-upper-fs-does-not-support-x
 ```
-3. 建置 Docker 映像 : **two_stage_dp_env** 
-```cmd
+3. 建置 Docker 映像 : **two_stage_dp_env**
+```bash
 sudo docker build -t two_stage_dp_env .
 ```
 5. docker run --gpus all -it --name my_project_container -v /path/to/your/project:/workspace my_project_env
-```cmd
+```bash
 # 使用環境 
 sudo docker run --gpus all -it --name two_stage_dp_container -v .:/workspace two_stage_dp_env
 # [Optional]重新進入環境
 sudo docker start two_stage_dp_container
 sudo docker exec -it two_stage_dp_container bash
 ```
-6. In docker環境中, Restore anaconda3環境(有tar.gz檔的環境可直接解壓)
-```cmd
+6. In docker環境中, Restore anaconda3環境(有tar.gz檔的環境可直接解壓) 
+```bash
+# 此步驟已整合進dockerfile，不須執行
 # 進入container ~/miniconda3/envs
 # mkdir 611410114_pp_test
 # tar -zxvf /workspace/env/611410114_pp_test/environment.tar.gz -C ~/miniconda3/envs/611410114_pp_test/
 # source activate 611410114_pp_test
 ```
 7. 進入611410114_pp_test環境，安裝缺失套件:
-```cmd
+```bash
 pip install opencv-python-headless 
 pip install opt_einsum 
 pip install astunparse google-pasta libclang termcolor 
@@ -100,7 +101,7 @@ pip install certifi==2024.2.2
 export SSL_CERT_DIR=/etc/ssl/certs/
 ```
 8. 進入minusface環境，安裝缺失套件:
-```cmd
+```bash
 pip install opencv-python-headless 
 pip install packaging
 ```
@@ -121,9 +122,9 @@ pip install packaging
   ./vgg2_fp.bin
   
   ```
-* 準備anaconda虛擬環境 (參考 Sec. [資料集下載](#Data-Zoo))，所有環境有:
+* 準備anaconda虛擬環境 (參考 Sec. [資料集下載](#Data-Zoo))，並參考Pre-Requisites[第六點](#pre-requisites)安裝:
   ```
-   611410114_pp_test
+   611410114_pp_test # 已安裝
    minusface
   ```
   有依以上環境名稱所命名的資料夾，複製到env資料夾下:
